@@ -20,8 +20,6 @@ dpkg -i nginx-full_1.10.1-0ubuntu1.2_amd64.deb nginx-common_1.10.1-0ubuntu1.2_al
 apt-get install -f
 
 # install nginx-rtmp-keyauth
-apt-get install golang-go -y
-go build github.com/Thor77/nginx-rtmp-keyauth
 cp nginx-rtmp-keyauth /usr/local/bin/nginx-rtmp-keyauth
 echo anime >> /etc/nginx-rtmp-keyauth.key
 systemctl daemon-reload
