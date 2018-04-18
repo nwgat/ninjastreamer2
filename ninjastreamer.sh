@@ -25,7 +25,7 @@ apt-get install -f -y
 # install nginx-rtmp-keyauth
 cp nginx-rtmp-keyauth /usr/local/bin/nginx-rtmp-keyauth
 chmod +x /usr/local/bin/nginx-rtmp-keyauth
-echo $pw >> /etc/nginx-rtmp-keyauth.key
+echo $pw >> /etc/nginx/nginx-rtmp-keyauth.key
 
 # setup systemd
 systemctl daemon-reload
