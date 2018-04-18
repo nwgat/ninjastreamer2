@@ -22,14 +22,14 @@ player.play();
 <h2>Encoded on Radeon, Powered by Ryzen, Served by EPYC</h2>
 <p>Ryzen 1700X, 16GB DDR4 2x2933, RX 480 Gaming X, 960 EVO 500GB NVMe <br />EPYC 7401P VM (1-Core, 2GB RAM, 10GB NVMe)</p>
 <p><strong>View Stream</strong></p>
-<p>Ninja Player: http://$ip (Passthru)</p>
-<p>HLS <a href="http://$ip/hls/live.m3u8">1080p</a> <a href="http://$ip/hls_push/live.m3u8">720p</a> RTMP <a href="rtmp://$ip:1935/out/live">1080p</a> <a href="rtmp://$ip:1935/push/live">720p</a></p>
+<p>Ninja Player: http://ip (Passthru)</p>
+<p>HLS <a href="http://ip/hls/live.m3u8">1080p</a> <a href="http://ip/hls_push/live.m3u8">720p</a> RTMP <a href="rtmp://ip:1935/out/live">1080p</a> <a href="rtmp://ip:1935/push/live">720p</a></p>
 <p>&nbsp;</p>
 <p><strong>Input: (OBS, ffmpeg etc)</strong></p>
-<p>rtmp://$ip:1935/in/live?key=password</p>
+<p>rtmp://ip:1935/in/live?key=password</p>
 <p><strong>Input Push</strong>(if you use another machine to encode 720p than the nginx one)</p>
-<p>rtmp://$ip:1935/push/live?key=password</p>
-<p>ffmpeg -i rtmp://$ip:1935/in/live -map 0 -threads 16 -c:v libx264 -preset medium -level 4.1 -vf scale=1280:-1 -b:v 5M -maxrate 6M -minrate 6M -bufsize 6M -g 120 -c:a aac -b:a 160k -flags +global_header -ac 1 -f flv rtmp://$ip:1935/push/live?key=password</p>
+<p>rtmp://ip:1935/push/live?key=password</p>
+<p>ffmpeg -i rtmp://ip:1935/in/live -map 0 -threads 16 -c:v libx264 -preset medium -level 4.1 -vf scale=1280:-1 -b:v 5M -maxrate 6M -minrate 6M -bufsize 6M -g 120 -c:a aac -b:a 160k -flags +global_header -ac 1 -f flv rtmp://$ip:1935/push/live?key=password</p>
 <p><img style="display: block; margin-left: auto; margin-right: auto;" src="ninjastreamer2.png" alt="" width="" height="" /></p>
   <script>
     const player = videojs('live');
