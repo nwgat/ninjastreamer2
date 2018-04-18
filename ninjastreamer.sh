@@ -2,7 +2,9 @@ echo
 echo  "## nwgat.ninja ninjastreamer ##"
 echo "https://nwgat.ninja"
 echo ""
-#read -p "RTMP Password: " pw
+
+read -p "RTMP Password: " pw
+read -p "Domain or IP" ip
 
 # remove nginx
 apt-get remove nginx --purge -y
@@ -21,7 +23,9 @@ apt-get install -f
 
 # install nginx-rtmp-keyauth
 cp nginx-rtmp-keyauth /usr/local/bin/nginx-rtmp-keyauth
-echo anime >> /etc/nginx-rtmp-keyauth.key
+echo $pw >> /etc/nginx-rtmp-keyauth.key
+
+# setup systemd
 systemctl daemon-reload
 systemctl enable nginx nginx-rtmp-keyauth
 
@@ -34,6 +38,5 @@ ufw allow 8080
 ufw allow 80
 
 # Details
-#echo "Ninja Player" http://$ip
-#echo "RTMP" rtmp://$ip:1935/in
-#echo "RTMP Password:" $pw
+echo "Ninja Player & Details" http://$ip
+echo "RTMP Password:" $pw

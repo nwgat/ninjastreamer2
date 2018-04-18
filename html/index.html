@@ -2,32 +2,35 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Nwgat NinjaStreamer HLS Player</title>
-  <link href="https://unpkg.com/video.js@5.16.0/dist/video-js.css" rel="stylesheet">
-  <script src="https://unpkg.com/video.js@5.16.0/dist/video.js"></script>
-  <script src="https://unpkg.com/videojs-contrib-hls@4.1.1/dist/videojs-contrib-hls.js"></script>
-  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-  <script src="https://unpkg.com/video.js/dist/video.js"></script>
-  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
-
+<title>Nwgat Ninja Player</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.8.0/alt/video-js-cdn.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.8.0/video.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.min.js"></script>
 </head>
 <body>
 <center><h1>Nwgat Ninja Player</h1>
-<video id=example-video width=1280 height=720 class="video-js vjs-default-skin" controls preload autoplay>
+<video id=example-video  height=540 class="video-js vjs-default-skin" controls preload autoplay>
   <source
      src="hls/live.m3u8"
      type="application/x-mpegURL">
 </video>
-<script src="video.js"></script>
-<script src="videojs-contrib-hls.min.js"></script>
 <script>
 var player = videojs('example-video');
 player.play();
 </script>
-<h2><img src="http://195.201.54.2/10994-A_AMD_RYZEN_RADEON_LOCKUP_K_WEB.png" alt="" width="442" height="56" />&nbsp; &nbsp;<img style="font-size: 14px;" src="http://195.201.54.2/1730404_AMD_EPYC_LOCKUP_K.png" alt="" width="182" height="69" /></h2>
+<h2><img src="10994-A_AMD_RYZEN_RADEON_LOCKUP_K_WEB.png" alt="" width="442" height="56" />&nbsp; &nbsp;<img style="font-size: 14px;" src="http://195.201.54.2/1730404_AMD_EPYC_LOCKUP_K.png" alt="" width="182" height="69" /></h2>
 <h2>Encoded on Radeon, Powered by Ryzen, Served by EPYC</h2>
 <p>Ryzen 1700X, 16GB DDR4 2x2933, RX 480 Gaming X, 960 EVO 500GB NVMe <br />EPYC 7401P VM (1-Core, 2GB RAM, 10GB NVMe)</p>
-<p><img style="display: block; margin-left: auto; margin-right: auto;" src="http://195.201.54.2/ninjastreamer2.png" alt="" width="" height="" /></p>
+<p><strong>View Stream</strong></p>
+<p>Ninja Player: http://$ip (Passthru)</p>
+<p>HLS <a href="http://$ip/hls/live.m3u8">1080p</a> <a href="http://$ip/hls_push/live.m3u8">720p</a> RTMP <a href="rtmp://$ip:1935/out/live">1080p</a> <a href="rtmp://$ip:1935/push/live">720p</a></p>
+<p>&nbsp;</p>
+<p><strong>Input: (OBS, ffmpeg etc)</strong></p>
+<p>rtmp://$ip:1935/in/live?key=password</p>
+<p><strong>Input Push</strong>(if you use another machine to encode 720p than the nginx one)</p>
+<p>rtmp://$ip:1935/push/live?key=password</p>
+<p>ffmpeg -i rtmp://$ip:1935/in/live -map 0 -threads 16 -c:v libx264 -preset medium -level 4.1 -vf scale=1280:-1 -b:v 5M -maxrate 6M -minrate 6M -bufsize 6M -g 120 -c:a aac -b:a 160k -flags +global_header -ac 1 -f flv rtmp://$ip:1935/push/live?key=password</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="ninjastreamer2.png" alt="" width="" height="" /></p>
   <script>
     const player = videojs('live');
     player.src({
@@ -36,5 +39,6 @@ player.play();
     });
   </script>
 </center>
+
 </body>
 </html>
