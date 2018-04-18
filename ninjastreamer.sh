@@ -4,7 +4,9 @@ echo "https://nwgat.ninja"
 echo ""
 
 read -p "RTMP Password: " pw
-read -p "Domain or IP" ip
+read -p "Domain or IP: " ip
+
+sed -i -e 's/$ip/ip/g' html/index.html
 
 # remove nginx
 apt-get remove nginx --purge -y
@@ -14,12 +16,11 @@ cp conf/nginx.conf /etc/nginx/
 cp conf/nginx-rtmp-keyauth.service /etc/systemd/system/
 cp -R html/* /var/www/html/
 
-
 # install nginx-rtmp
 wget https://awesome.nwgat.ninja/nginx-rtmp/nginx-common_1.10.1-0ubuntu1.2_all.deb
 wget https://awesome.nwgat.ninja/nginx-rtmp/nginx-full_1.10.1-0ubuntu1.2_amd64.deb
 dpkg -i nginx-full_1.10.1-0ubuntu1.2_amd64.deb nginx-common_1.10.1-0ubuntu1.2_all.deb
-apt-get install -f
+apt-get install -f -y
 
 # install nginx-rtmp-keyauth
 cp nginx-rtmp-keyauth /usr/local/bin/nginx-rtmp-keyauth
