@@ -14,7 +14,7 @@ apt-get remove nginx --purge -y
 # required files
 cp conf/nginx.conf /etc/nginx/
 cp conf/nginx-rtmp-keyauth.service /etc/systemd/system/
-cp -r html/* /var/www/html/
+cp -R html /var/www/html
 
 # install nginx-rtmp
 wget https://awesome.nwgat.ninja/nginx-rtmp/nginx-common_1.10.1-0ubuntu1.2_all.deb
