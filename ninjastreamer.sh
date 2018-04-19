@@ -26,7 +26,7 @@ echo $pw >> /etc/nginx/nginx-rtmp-keyauth.key
 # required files
 cp conf/nginx.conf /etc/nginx/
 cp conf/nginx-rtmp-keyauth.service /etc/systemd/system/
-cp -R html /var/www/html
+cp -R html /var/www/
 
 # setup systemd
 systemctl daemon-reload
