@@ -6,7 +6,7 @@ echo ""
 read -p "RTMP Password: " pw
 read -p "Domain or IP: " ip
 
-sed -i -e 's/ip/"$1"/g' html/index.html
+sed -i -e 's/ip/"$ip"/g' html/index.html
 sed -i -e 's/pw/"$pw"/g' conf/nginx.conf
 
 # remove nginx
