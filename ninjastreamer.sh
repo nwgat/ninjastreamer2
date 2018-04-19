@@ -7,6 +7,7 @@ read -p "RTMP Password: " pw
 read -p "Domain or IP: " iphost
 
 sed -e "s/"iphost"/"$iphost"/g" html/index.html -i.bkp
+sed -e "s/"pw"/"$pw"/g" html/index.html -i.bkp
 sed -e "s/"pw"/"$pw"/g" conf/nginx.conf -i.bkp
 
 # remove nginx
