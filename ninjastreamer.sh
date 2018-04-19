@@ -41,5 +41,5 @@ ufw allow 8080
 ufw allow 80
 
 # Details
-echo "Ninja Player & Details" http://$ip
+echo "Ninja Player & Details" http://$iphost
 echo "RTMP Password:" $pw
