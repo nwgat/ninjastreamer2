@@ -7,7 +7,7 @@ read -p "RTMP Password: " pw
 read -p "Domain or IP: " iphost
 
 sed -e "s/"iphost"/"$iphost"/g" html/index.html -i.bkp
-sed -e "s/"pw"/"$pw"/g" html/index.html -i.bkp
+sed -e "s/"pw"/"$pw"/g" conf/nginx.conf -i.bkp
 
 # remove nginx
 apt-get remove nginx nginx-common nginx-full --purge -y
@@ -35,7 +35,7 @@ systemctl daemon-reload
 systemctl enable nginx nginx-rtmp-keyauth
 
 systemctl start nginx nginx-rtmp-keyauth
-systemctl status nginx  nginx-rtmp-keyauth
+systemctl status nginx nginx-rtmp-keyauth
 
 #firewalls
 ufw allow 1935
