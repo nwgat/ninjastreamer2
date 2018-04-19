@@ -4,10 +4,10 @@ echo "https://nwgat.ninja"
 echo ""
 
 read -p "RTMP Password: " pw
-read -p "Domain or IP: " ip
+read -p "Domain or IP: " iphost
 
-sed -i -e 's/ip/"$ip"/g' html/index.html
-sed -i -e 's/pw/"$pw"/g' conf/nginx.conf
+sed -e "s/"iphost"/"$iphost"/g" html/index.html -i.bkp
+sed -e "s/"pw"/"$pw"/g" html/index.html -i.bkp
 
 # remove nginx
 apt-get remove nginx nginx-common nginx-full --purge -y
