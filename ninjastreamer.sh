@@ -6,14 +6,15 @@ echo ""
 read -p "RTMP Password: " pw
 read -p "Domain or IP: " ip
 
-sed -i -e 's/$ip/ip/g' html/index.html
+sed -i -e 's/ip/$1/g' html/index.html
+sed -i -e 's/pw/$pw/g' conf/nginx.conf
 
 # remove nginx
-apt-get remove nginx --purge -y
+apt-get remove nginx nginx-common nginx-full --purge -y
 
 # install nginx-rtmp
-wget https://awesome.nwgat.ninja/nginx-rtmp/nginx-common_1.10.1-0ubuntu1.2_all.deb
-wget https://awesome.nwgat.ninja/nginx-rtmp/nginx-full_1.10.1-0ubuntu1.2_amd64.deb
+wget -q https://awesome.nwgat.ninja/nginx-rtmp/nginx-common_1.10.1-0ubuntu1.2_all.deb 
+wget -q https://awesome.nwgat.ninja/nginx-rtmp/nginx-full_1.10.1-0ubuntu1.2_amd64.deb
 dpkg -i nginx-full_1.10.1-0ubuntu1.2_amd64.deb nginx-common_1.10.1-0ubuntu1.2_all.deb
 apt-get install -f -y
 
