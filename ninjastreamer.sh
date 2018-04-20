@@ -26,6 +26,7 @@ apt-get install -y ffmpeg p7zip-full
 wget -q https://awesome.nwgat.ninja/nginx-rtmp/nginx-1.12.1/nginx-1.12.1.deb.7z
 7z e nginx-1.12.1.deb.7z
 dpkg -i nginx-full_1.12.1-0ubuntu2_amd64.deb nginx-common_1.12.1-0ubuntu2_all.deb libnginx-mod-*
+apt-get install -f -y
 
 # install nginx-rtmp-keyauth
 cp nginx-rtmp-keyauth /usr/local/bin/nginx-rtmp-keyauth
