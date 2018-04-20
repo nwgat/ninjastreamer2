@@ -14,13 +14,18 @@ sed -e "s/"pw"/"$pw"/g" conf/nginx.conf -i.bkp
 apt-get remove nginx nginx-common nginx-full --purge -y
 
 # install ffmpeg
-apt-get install -y ffmpeg
+apt-get install -y ffmpeg p7zip-full
 
 # install nginx-rtmp
 wget -q https://awesome.nwgat.ninja/nginx-rtmp/nginx-common_1.10.1-0ubuntu1.2_all.deb 
 wget -q https://awesome.nwgat.ninja/nginx-rtmp/nginx-full_1.10.1-0ubuntu1.2_amd64.deb
 dpkg -i nginx-full_1.10.1-0ubuntu1.2_amd64.deb nginx-common_1.10.1-0ubuntu1.2_all.deb >> /dev/null
-apt-get install -f -y >> /dev/null
+apt-get install -f -y
+
+# install nginx-rtmp 1.12
+wget -q https://awesome.nwgat.ninja/nginx-rtmp/nginx-1.12.1.deb.7z
+7z e nginx-1.12.1.deb.7z
+dpkg -i nginx-full_1.12.1-0ubuntu2_amd64.deb nginx-common_1.12.1-0ubuntu2_all.deb libnginx-mod-*
 
 # install nginx-rtmp-keyauth
 cp nginx-rtmp-keyauth /usr/local/bin/nginx-rtmp-keyauth
