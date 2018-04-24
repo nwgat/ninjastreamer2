@@ -1,8 +1,9 @@
 # ninjastreamer2
 new and improved ninjastreamer
-
-* html5 player with hls support  
 * less mess
 * more stable
-* hls streams 
-* rtmp streams
+* html5 player with hls support  
+* hls & rtmp streams 
+* more secure (auth for input streams)
+* newer nginx-rtmp
+* tested on Ubuntu 16.04 LTS
