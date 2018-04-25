@@ -4,6 +4,6 @@ new and improved ninjastreamer
 * more stable
 * html5 player with hls support  
 * hls & rtmp streams 
-* more secure (auth for input streams)
+* more secure (nginx-rtmp-keyauth for input streams)
 * newer nginx-rtmp
 * tested on Ubuntu 16.04 LTS
