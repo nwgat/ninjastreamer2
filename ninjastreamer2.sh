@@ -50,6 +50,9 @@ ufw allow 1935 >> /dev/null
 ufw allow 8080 >> /dev/null
 ufw allow 80 >> /dev/null
 
+sleep 15
+systemctl restart nginx nginx-rtmp-keyauth
+
 echo ""
 # Details
 echo "Ninja Player & Details" http://$iphost
