@@ -9,6 +9,10 @@ read -p "Domain or IP: " iphost
 sed -e "s/"iphost"/"$iphost"/g" html/index.html -i.bkp
 sed -e "s/"pw"/"$pw"/g" conf/nginx.conf -i.bkp
 
+# update & upgrade
+apt-get update
+apt-get upgrade -y
+
 # remove nginx
 apt-get remove nginx nginx-common nginx-full --purge -y
 
