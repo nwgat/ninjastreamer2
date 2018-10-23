@@ -5,8 +5,7 @@
 <title>Nwgat Ninja Player</title>
 <center><h1>Nwgat Ninja Player</h1>
   <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
-<center><h1>Nwgat Ninja Player</h1>
-<video-js id=vid1 width=905 height=509 class="vjs-default-skin" controls>
+<video-js id=vid1 width=905 height=509 class="vjs-default-skin" controls autoplay preload>
   <source
      src="hls/live.m3u8"
      type="application/x-mpegURL">
@@ -17,16 +16,18 @@ var player = videojs('vid1');
 player.play();
 </script>
 
-<h2><img src="10994-A_AMD_RYZEN_RADEON_LOCKUP_K_WEB.png" alt="" width="442" height="56" />&nbsp; &nbsp;<img style="font-size: 14px;" src="1730404_AMD_EPYC_LOCKUP_K.png" alt="" width="182" height="69" /></h2>
-<h2>Encoded on Ryzen, Rendered by Ryzen</h2>
+<h2><img src="10994-A_AMD_RYZEN_RADEON_LOCKUP_K_WEB.png" alt="" width="442" height="56" /></h2>
+<h2>Encoded on Ryzen, Rendered by Radeon</h2>
 <p>Ryzen 1700X, 16GB DDR4 2x2933, RX 480 Gaming X, 960 EVO 500GB NVMe</p>
 <p><strong>View Stream</strong></p>
 <p>Ninja Player: http://iphost (Passthru)</p>
 <p>HLS <a href="http://iphost/hls/live.m3u8">1080p</a> <a href="http://iphost/hls_push/live.m3u8">720p</a> RTMP <a href="rtmp://iphost:1935/out/live">1080p</a> <a href="rtmp://iphost:1935/push/live">720p</a></p>
 <p>&nbsp;</p>
-<p><strong>Input: (OBS, ffmpeg etc)</strong></p>
-<p>rtmp://iphost:1935/in/live?key=pw</p>
-<p><strong>Input Push</strong>(if you use another machine to encode 720p than the nginx one)</p>
+<p><strong>Input: (OBS Studio, ffmpeg, ReLive, ShadowPlay etc)</strong></p>
+<p>URL: rtmp://iphost:1935/in/ 
+<p>Steam Key: live?key=pw</p>
+<p><strong>Input Push</strong><p/>
+<p>(if you use another machine to encode 720p than the nginx one)</p>
 <p>rtmp://iphost:1935/push/live?key=pw</p>
 <p>ffmpeg -i rtmp://iphost:1935/in/live -map 0 -threads 16 -c:v libx264 -preset medium -level 4.1 -vf scale=1280:-1 -b:v 5M -maxrate 6M -minrate 6M -bufsize 6M -g 120 -c:a aac -b:a 160k -flags +global_header -ac 1 -f flv rtmp://iphost:1935/push/live?key=pw</p>
   <script>
